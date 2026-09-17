@@ -1,1 +1,2 @@
 Payment feature - version B
+Payment feature - version A
