@@ -1,2 +1,3 @@
-Payment feature - version B
-Payment feature - version A
+Hello Git
+I am learning DevOps
+Login feature added
