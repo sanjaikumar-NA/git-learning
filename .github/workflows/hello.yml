@@ -1,0 +1,15 @@
+name: Hello GitHub Actions
+
+on:
+  push:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say hello
+        run: echo "Hello from GitHub Actions!"
+
+      - name: Show message
+        run: echo "I am learning DevOps."
