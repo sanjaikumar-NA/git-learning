@@ -16,3 +16,9 @@ jobs:
 
       - name: Show files
         run: ls -la
+
+      - name: System information
+        run: |
+          pwd
+          ls -la
+          echo "GitHub Actions is running"
