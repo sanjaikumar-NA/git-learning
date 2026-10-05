@@ -39,4 +39,4 @@ jobs:
           echo "Environment: $ENVIRONMENT"    
 
       - name: Show job variable
-        run: echo "Version: $VERSION"    
+        run: echo "Version:$VERSION"    
