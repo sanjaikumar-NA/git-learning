@@ -40,3 +40,6 @@ jobs:
 
       - name: Show job variable
         run: echo "Version:$VERSION"    
+
+      - name: Test secret
+        run: echo "Secret is ${{ secrets.DEMO_SECRET }}"  
