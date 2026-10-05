@@ -43,3 +43,12 @@ jobs:
 
       - name: Test secret
         run: echo "Secret is ${{ secrets.DEMO_SECRET }}"  
+
+  test:
+    runs-on: ubuntu-latest
+
+    needs: hello
+
+    steps:
+      - name: Run tests
+        run: echo "Tests are running..."      
