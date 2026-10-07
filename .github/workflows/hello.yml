@@ -51,4 +51,8 @@ jobs:
 
     steps:
       - name: Run tests
-        run: echo "Tests are running..."      
+        run: echo "Tests are running..."
+
+      - name: Production check
+        if: env.ENVIRONMENT == 'prod'
+        run: echo "Production deployment checks running..."    
