@@ -1,0 +1,70 @@
+name: Hello GitHub Actions
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+
+permissions:
+  contents: read
+
+env:
+  APP_NAME: git-learning
+  ENVIRONMENT: dev
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    env:
+      VERSION: "1.0"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Say hello
+        run: echo "Hello from GitHub Actions!"
+
+      - name: Show files
+        run: ls -la
+
+      - name: System information
+        run: |
+          pwd
+          ls -la
+          echo "GitHub Actions is running"
+
+      - name: Show environment variables
+        run: |
+          echo "Application: $APP_NAME"
+          echo "Environment: $ENVIRONMENT"    
+
+      - name: Show job variable
+        run: echo "Version:$VERSION"    
+
+      - name: Test secret
+        run: echo "Secret is ${{ secrets.DEMO_SECRET }}"  
+
+  test:
+    runs-on: ubuntu-latest
+
+    needs: hello
+
+    steps:
+      - name: Run tests
+        run: echo "Tests are running..."
+
+      - name: Production check
+        if: env.ENVIRONMENT == 'prod'
+        run: echo "Production deployment checks running..."
+
+      - name: Create test report
+        run: echo "All tests passed" > test-report.txt    
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: test-report.txt    
